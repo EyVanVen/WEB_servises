@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sandwiches" type="sandwichesType"/>
+  <xs:complexType name="topType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="sort" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="midlleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="sort" use="optional"/>
+        <xs:attribute type="xs:string" name="fresh" use="optional"/>
+        <xs:attribute type="xs:string" name="quantity" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ingridientsType">
+    <xs:sequence>
+      <xs:element type="topType" name="top" minOccurs="0"/>
+      <xs:element type="midlleType" name="midlle" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="bottom">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:all">
+              <xs:attribute type="xs:string" name="sort" use="optional"/>
+              <xs:attribute type="xs:int" name="quantity" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="bottomType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="sort" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="sandwichesType">
+    <xs:sequence>
+      <xs:element type="ingridientsType" name="ingridients" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
