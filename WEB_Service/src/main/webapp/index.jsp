@@ -9,6 +9,7 @@
     Hello, Denis)
 </h1>
 <br/>
-<a href="/calculate">Calculator</a>
+<a href="/calculate">calculator</a>
+<a href="/currency">currency</a>
 </body>
 </html>
